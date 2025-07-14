@@ -1,0 +1,64 @@
+<html lang="en" class="scroll-smooth" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onmousedown="if(event.button==2){return false;}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Mintera</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Disable zoom on some browsers */
+    html {
+      touch-action: manipulation;
+    }
+    /* Disable image dragging */
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+  <script>
+    // Function to get approximate network speed category and return a delay in ms
+    function getDelayByNetworkSpeed() {
+      if ('connection' in navigator) {
+        const type = navigator.connection.effectiveType || '';
+        // effectiveType can be 'slow-2g', '2g', '3g', or '4g'
+        switch(type) {
+          case 'slow-2g': return randomDelay(5000, 8000);
+          case '2g': return randomDelay(4000, 7000);
+          case '3g': return randomDelay(2000, 4000);
+          case '4g': return randomDelay(1000, 2000);
+          default: return randomDelay(3000, 6000);
+        }
+      } else {
+        // If no network info, fallback delay
+        return randomDelay(3000, 6000);
+      }
+    }
+
+    function randomDelay(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    window.addEventListener('load', () => {
+      const delay = getDelayByNetworkSpeed();
+      setTimeout(() => {
+        window.location.href = 'index2.html';
+      }, delay);
+    });
+  </script>
+</head>
+<body class="bg-black min-h-screen flex flex-col items-center justify-center" ondragstart="return false" onselectstart="return false" oncontextmenu="return false" onmousedown="if(event.button==2){return false;}">
+  <div class="flex-grow flex items-center justify-center">
+    <img src="./Mintera.png" alt="Centered image with abstract colorful shapes on black background" class="w-64 h-auto object-contain" draggable="false" />
+  </div>
+  <footer class="text-center mt-12 mb-6 select-none">
+    <p class="text-gray-600 text-2xl font-extrabold tracking-widest">MINTERA</p>
+    <p class="text-gray-600 text-xs tracking-widest mt-1">MASTER OF THE SEVEN SEAS</p>
+    <div class="mx-auto mt-3 w-24 h-[3px] bg-gray-600 rounded-full"></div>
+  </footer>
+</body>
+</html>

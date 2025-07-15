@@ -27,15 +27,15 @@
         const type = navigator.connection.effectiveType || '';
         // effectiveType can be 'slow-2g', '2g', '3g', or '4g'
         switch(type) {
-          case 'slow-2g': return randomDelay(8000, 11000);
-          case '2g': return randomDelay(7000, 10000);
-          case '3g': return randomDelay(5000, 7000);
-          case '4g': return randomDelay(4000, 5000);
-          default: return randomDelay(6000, 9000);
+          case 'slow-2g': return randomDelay(9000, 12000);
+          case '2g': return randomDelay(8000, 11000);
+          case '3g': return randomDelay(6000, 8000);
+          case '4g': return randomDelay(5000, 6000);
+          default: return randomDelay(7000, 10000);
         }
       } else {
         // If no network info, fallback delay
-        return randomDelay(3000, 6000);
+        return randomDelay(7000, 10000);
       }
     }
 
@@ -57,7 +57,7 @@
   </div>
   <footer class="text-center mt-12 mb-6 select-none">
     <p class="text-gray-600 text-2xl font-extrabold tracking-widest">MINTERA</p>
-    <p class="text-gray-600 text-xs tracking-widest mt-1">MASTER OF THE SEVEN SEAS</p>
+    <p class="text-gray-600 text-xs tracking-widest mt-1">TOUCH NOTHING MINT EVERYTHING</p>
     <div class="mx-auto mt-3 w-24 h-[3px] bg-gray-600 rounded-full"></div>
   </footer>
 </body>

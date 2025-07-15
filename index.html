@@ -27,11 +27,11 @@
         const type = navigator.connection.effectiveType || '';
         // effectiveType can be 'slow-2g', '2g', '3g', or '4g'
         switch(type) {
-          case 'slow-2g': return randomDelay(5000, 8000);
-          case '2g': return randomDelay(4000, 7000);
-          case '3g': return randomDelay(2000, 4000);
-          case '4g': return randomDelay(1000, 2000);
-          default: return randomDelay(3000, 6000);
+          case 'slow-2g': return randomDelay(8000, 11000);
+          case '2g': return randomDelay(7000, 10000);
+          case '3g': return randomDelay(5000, 7000);
+          case '4g': return randomDelay(4000, 5000);
+          default: return randomDelay(6000, 9000);
         }
       } else {
         // If no network info, fallback delay
